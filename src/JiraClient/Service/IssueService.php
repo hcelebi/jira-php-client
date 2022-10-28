@@ -6,7 +6,6 @@ use GuzzleHttp\Client;
 use JiraClient\Dto\Issue;
 use JiraClient\Dto\Transition;
 use JiraClient\Mapper\IssueMapper;
-use JiraClient\Util\JiraKeyUtil;
 
 class IssueService
 {
