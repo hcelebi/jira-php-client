@@ -2,7 +2,7 @@
     "name": "hcelebi/jira-php-client",
     "description": "PHP Client For Jira API",
     "require": {
-        "slim/slim": "^3.12",
+        "slim/slim": "^4.10",
         "guzzlehttp/guzzle": "~6.0",
         "monolog/monolog": "^1.24"
     },
