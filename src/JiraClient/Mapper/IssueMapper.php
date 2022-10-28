@@ -24,7 +24,7 @@ class IssueMapper
                 }
             }
         }
-
+        $fields->setSummary($issueData->fields->summary);
         $issue->setFields($fields);
 
 

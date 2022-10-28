@@ -29,18 +29,6 @@ class IssueService
     }
 
 
-
-    public function getLinkedAcceptanceTask(string $jiraKey): ?Issue
-    {
-        $issue = $this->getIssue($jiraKey);
-        $links = $issue->getFields()->getLinks();
-        if ($links != null && count($links) > 0) {
-            return JiraKeyUtil::findWebAcceptanceTaskFromLinks($links);
-        }
-        return null;
-    }
-
-
     public function createIssue(array $issue)
     {
         $this->client->request('POST', 'issue', ['body' => json_encode($issue)]);
