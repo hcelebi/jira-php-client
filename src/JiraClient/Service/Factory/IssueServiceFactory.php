@@ -8,10 +8,8 @@ use JiraClient\Service\IssueService;
 
 class IssueServiceFactory
 {
-    public static function createService(ContainerInterface $container) : void
+    public static function getService() : IssueService
     {
-        $issueService = new IssueService();
-        $issueService->setClient($container[JiraClientFactory::class]);
-        $container[IssueService::class] = $issueService;
+        return new IssueService();
     }
 }
