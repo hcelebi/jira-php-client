@@ -28,8 +28,8 @@ class IssueMapper
         $fields->setSummary($issueData->fields->summary);
 
         $issueType = new IssueType();
-        $issueType->setId($issueData->fields->issueType->id);
-        $issueType->setName($issueData->fields->issueType->name);
+        $issueType->setId($issueData->fields->issuetype->id);
+        $issueType->setName($issueData->fields->issuetype->name);
         $fields->setIssueType($issueType);
 
         $issue->setFields($fields);
