@@ -30,7 +30,7 @@ class SearchService {
     public function search(SearchRequest $searchRequest) : ?SearchResult
     {
         try {
-            $response = $this->client->request('GET', 'search');
+            $response = $this->client->request('GET', 'search?jql' . $searchRequest->getJql());
             $responseData = json_decode($response->getBody()->getContents());
             return SearchResultMapper::map($responseData);
         } catch (\Exception $e) {
