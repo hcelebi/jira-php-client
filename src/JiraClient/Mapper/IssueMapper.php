@@ -4,6 +4,7 @@ namespace JiraClient\Mapper;
 
 use JiraClient\Dto\Fields;
 use JiraClient\Dto\Issue;
+use JiraClient\Dto\IssueType;
 
 class IssueMapper
 {
@@ -25,6 +26,12 @@ class IssueMapper
             }
         }
         $fields->setSummary($issueData->fields->summary);
+
+        $issueType = new IssueType();
+        $issueType->setId($issueData->fields->issueType->id);
+        $issueType->setName($issueData->fields->issueType->name);
+        $fields->setIssueType($issueType);
+
         $issue->setFields($fields);
 
 
