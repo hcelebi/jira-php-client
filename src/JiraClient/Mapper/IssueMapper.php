@@ -28,6 +28,9 @@ class IssueMapper
                 if (isset($linkedIssue->inwardIssue)) {
                     $fields->addLink(IssueMapper::map($linkedIssue->inwardIssue));
                 }
+                if (isset($linkedIssue->outwardIssue)) {
+                    $fields->addLink(IssueMapper::map($linkedIssue->outwardIssue));
+                }
             }
         }
         $fields->setSummary($issueData->fields->summary);
