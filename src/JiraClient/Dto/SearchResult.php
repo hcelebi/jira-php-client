@@ -4,11 +4,11 @@ namespace JiraClient\Dto;
 
 class SearchResult {
 
-    private int $startAt;
-    private int $maxResult;
-    private int $total;
+    private ?int $startAt;
+    private ?int $maxResult;
+    private ?int $total;
     /** @var Issue[]  */
-    private array $issues;
+    private array $issues = [];
 
     /**
      * @return int
