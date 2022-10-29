@@ -14,6 +14,11 @@ class IssueMapper
         $issue->setId($issueData->id);
         $issue->setKey($issueData->key);
         $fields = new Fields();
+
+        if (isset($issueData->fields->parent) && $issueData->fields->parent != null) {
+            $fields->setParent(IssueMapper::map($issueData->fields->parent));
+        }
+
         if (isset($issueData->fields->labels) && $issueData->fields->labels != null) {
             $fields->setLabels($issueData->fields->labels);
         }

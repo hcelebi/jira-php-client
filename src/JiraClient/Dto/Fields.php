@@ -24,6 +24,8 @@ class Fields
     private $links = [];
     /** @var Version[]  */
     private $fixVersions = [];
+    /** @var Issue */
+    private $parent;
 
     /**
      * @return Project
@@ -202,6 +204,22 @@ class Fields
         $this->fixVersions[] = $fixVersion;
     }
 
+    /**
+     * @return Issue
+     */
+    public function getParent(): Issue
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param Issue $parent
+     */
+    public function setParent(Issue $parent): void
+    {
+        $this->parent = $parent;
+    }
+
 
     public function toArray() : array
     {
@@ -242,6 +260,9 @@ class Fields
         }
         if ($fixVersionStack != null && count($fixVersionStack) > 0) {
             $arr['fixVersions'] = $fixVersionStack;
+        }
+        if ($this->parent != null) {
+            $arr['parent'] = $this->parent;
         }
         return $arr;
     }
