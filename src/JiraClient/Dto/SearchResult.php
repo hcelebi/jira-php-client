@@ -11,52 +11,53 @@ class SearchResult {
     private array $issues = [];
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getStartAt(): int
+    public function getStartAt(): ?int
     {
         return $this->startAt;
     }
 
     /**
-     * @param int $startAt
+     * @param int|null $startAt
      */
-    public function setStartAt(int $startAt): void
+    public function setStartAt(?int $startAt): void
     {
         $this->startAt = $startAt;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getMaxResult(): int
+    public function getMaxResult(): ?int
     {
         return $this->maxResult;
     }
 
     /**
-     * @param int $maxResult
+     * @param int|null $maxResult
      */
-    public function setMaxResult(int $maxResult): void
+    public function setMaxResult(?int $maxResult): void
     {
         $this->maxResult = $maxResult;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotal(): int
+    public function getTotal(): ?int
     {
         return $this->total;
     }
 
     /**
-     * @param int $total
+     * @param int|null $total
      */
-    public function setTotal(int $total): void
+    public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
+
 
     /**
      * @return array
