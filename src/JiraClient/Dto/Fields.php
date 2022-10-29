@@ -24,7 +24,7 @@ class Fields
     private $links = [];
     /** @var Version[]  */
     private $fixVersions = [];
-    /** @var Issue */
+    /** @var ?Issue */
     private $parent;
 
     /**
@@ -205,17 +205,17 @@ class Fields
     }
 
     /**
-     * @return Issue
+     * @return Issue|null
      */
-    public function getParent(): Issue
+    public function getParent(): ?Issue
     {
         return $this->parent;
     }
 
     /**
-     * @param Issue $parent
+     * @param Issue|null $parent
      */
-    public function setParent(Issue $parent): void
+    public function setParent(?Issue $parent): void
     {
         $this->parent = $parent;
     }
