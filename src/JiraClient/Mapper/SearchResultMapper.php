@@ -8,7 +8,7 @@ class SearchResultMapper
 {
     public static function map(\stdClass $response) : SearchResult {
         $searchResult = new SearchResult();
-        $searchResult->setMaxResult($response->maxResult);
+        $searchResult->setMaxResults($response->maxResults);
         $searchResult->setStartAt($response->startAt);
         $searchResult->setTotal($response->total);
         $issues = [];

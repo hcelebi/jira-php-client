@@ -5,7 +5,7 @@ namespace JiraClient\Dto;
 class SearchResult {
 
     private ?int $startAt;
-    private ?int $maxResult;
+    private ?int $maxResults;
     private ?int $total;
     /** @var Issue[]  */
     private array $issues = [];
@@ -29,17 +29,17 @@ class SearchResult {
     /**
      * @return int|null
      */
-    public function getMaxResult(): ?int
+    public function getMaxResults(): ?int
     {
-        return $this->maxResult;
+        return $this->maxResults;
     }
 
     /**
-     * @param int|null $maxResult
+     * @param int|null $maxResults
      */
-    public function setMaxResult(?int $maxResult): void
+    public function setMaxResults(?int $maxResults): void
     {
-        $this->maxResult = $maxResult;
+        $this->maxResults = $maxResults;
     }
 
     /**
@@ -89,7 +89,7 @@ class SearchResult {
 
         return [
             'startAt' => $this->startAt,
-            'maxResult' => $this->maxResult,
+            'maxResults' => $this->maxResults,
             'total' => $this->total,
             'issues' => $issues
         ];
