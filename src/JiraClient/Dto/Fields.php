@@ -26,6 +26,8 @@ class Fields
     private $fixVersions = [];
     /** @var ?Issue */
     private $parent;
+    /** @var ?Resolution */
+    private $resolution;
 
     /**
      * @return Project
@@ -220,6 +222,21 @@ class Fields
         $this->parent = $parent;
     }
 
+    /**
+     * @return Resolution|null
+     */
+    public function getResolution(): ?Resolution
+    {
+        return $this->resolution;
+    }
+
+    /**
+     * @param Resolution|null $resolution
+     */
+    public function setResolution(?Resolution $resolution): void
+    {
+        $this->resolution = $resolution;
+    }
 
     public function toArray() : array
     {
@@ -263,6 +280,9 @@ class Fields
         }
         if ($this->parent != null) {
             $arr['parent'] = $this->parent;
+        }
+        if ($this->resolution != null) {
+            $arr['resolution'] = $this->resolution->toArray();
         }
         return $arr;
     }

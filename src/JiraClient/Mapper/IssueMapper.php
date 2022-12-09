@@ -5,6 +5,7 @@ namespace JiraClient\Mapper;
 use JiraClient\Dto\Fields;
 use JiraClient\Dto\Issue;
 use JiraClient\Dto\IssueType;
+use JiraClient\Dto\Resolution;
 
 class IssueMapper
 {
@@ -21,6 +22,14 @@ class IssueMapper
 
         if (isset($issueData->fields->labels) && $issueData->fields->labels != null) {
             $fields->setLabels($issueData->fields->labels);
+        }
+
+        if (isset($issueData->fields->resolution) && $issueData->fields->resolution != null) {
+            $resolution = new Resolution();
+            $resolution->setName($issueData->fields->resolution->name);
+            $resolution->setId($issueData->fields->resolution->id);
+            $resolution->setDescription($issueData->fields->resolution->description);
+            $fields->setResolution($resolution);
         }
 
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
