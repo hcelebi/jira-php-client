@@ -29,6 +29,8 @@ class Fields
     /** @var ?Resolution */
     private $resolution;
 
+    private ?Status $status;
+
     /**
      * @return Project
      */
@@ -238,6 +240,8 @@ class Fields
         $this->resolution = $resolution;
     }
 
+    
+
     public function toArray() : array
     {
         $repositoriesStack = [];
@@ -284,6 +288,25 @@ class Fields
         if ($this->resolution != null) {
             $arr['resolution'] = $this->resolution->toArray();
         }
+        if ($this->status != null) {
+            $arr['status'] = $this->status->toArray();
+        }
         return $arr;
     }
+
+	/**
+	 * @return \JiraClient\Dto\Status|null
+	 */
+	public function getStatus(): ?\JiraClient\Dto\Status {
+		return $this->status;
+	}
+	
+	/**
+	 * @param \JiraClient\Dto\Status|null $status 
+	 * @return self
+	 */
+	public function setStatus(?\JiraClient\Dto\Status $status): self {
+		$this->status = $status;
+		return $this;
+	}
 }
