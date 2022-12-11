@@ -295,18 +295,17 @@ class Fields
     }
 
 	/**
-	 * @return \JiraClient\Dto\Status|null
+	 * @return Status|null
 	 */
-	public function getStatus(): ?\JiraClient\Dto\Status {
+	public function getStatus(): ?Status {
 		return $this->status;
 	}
 	
 	/**
-	 * @param \JiraClient\Dto\Status|null $status 
+	 * @param Status|null $status 
 	 * @return self
 	 */
-	public function setStatus(?\JiraClient\Dto\Status $status): self {
+	public function setStatus(?Status $status): void {
 		$this->status = $status;
-		return $this;
 	}
 }
