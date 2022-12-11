@@ -6,6 +6,7 @@ use JiraClient\Dto\Fields;
 use JiraClient\Dto\Issue;
 use JiraClient\Dto\IssueType;
 use JiraClient\Dto\Resolution;
+use JiraClient\Dto\Status;
 
 class IssueMapper
 {
@@ -30,6 +31,12 @@ class IssueMapper
             $resolution->setId($issueData->fields->resolution->id);
             $resolution->setDescription($issueData->fields->resolution->description);
             $fields->setResolution($resolution);
+        }
+
+        if (isset($issueData->fields->status) && $issueData->fields->status != null) {
+            $status = new Status();
+            $status->setId($issueData->fields->status->id);
+            $status->setName($issueData->fields->status->name);
         }
 
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
