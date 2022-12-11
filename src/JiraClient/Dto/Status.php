@@ -17,11 +17,9 @@ class Status
 	
 	/**
 	 * @param string $name 
-	 * @return self
 	 */
-	public function setName(string $name): self {
+	public function setName(string $name): void {
 		$this->name = $name;
-		return $this;
 	}
 
 
@@ -34,11 +32,9 @@ class Status
 	
 	/**
 	 * @param int $id 
-	 * @return self
 	 */
-	public function setId(int $id): self {
+	public function setId(int $id): void {
 		$this->id = $id;
-		return $this;
 	}
     
     public function toArray() : array
