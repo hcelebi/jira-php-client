@@ -28,8 +28,11 @@ class Fields
     private $parent;
     /** @var ?Resolution */
     private $resolution;
-
-    private ?Status $status;
+    /**
+     *  
+     * @var Status|null
+     */
+    private $status;
 
     /**
      * @return Project
@@ -302,8 +305,7 @@ class Fields
 	}
 	
 	/**
-	 * @param Status|null $status 
-	 * @return self
+	 * @param Status|null $status
 	 */
 	public function setStatus(?Status $status): void {
 		$this->status = $status;
