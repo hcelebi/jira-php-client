@@ -37,6 +37,7 @@ class IssueMapper
             $status = new Status();
             $status->setId($issueData->fields->status->id);
             $status->setName($issueData->fields->status->name);
+            $fields->setStatus($status);
         }
 
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
