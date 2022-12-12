@@ -28,6 +28,8 @@ class Fields
     private $parent;
     /** @var ?Resolution */
     private $resolution;
+    /** @var string */
+    private $rankField;
     /**
      *  
      * @var Status|null
@@ -294,6 +296,10 @@ class Fields
         if ($this->status != null) {
             $arr['status'] = $this->status->toArray();
         }
+        if ($this->rankField != null) {
+            $arr['rankField'] = $this->rankField;
+        }
+
         return $arr;
     }
 
@@ -310,4 +316,20 @@ class Fields
 	public function setStatus(?Status $status): void {
 		$this->status = $status;
 	}
+
+    /**
+     * @return string
+     */
+    public function getRankField(): string
+    {
+        return $this->rankField;
+    }
+
+    /**
+     * @param string $rankField
+     */
+    public function setRankField(string $rankField): void
+    {
+        $this->rankField = $rankField;
+    }
 }

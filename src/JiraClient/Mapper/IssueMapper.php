@@ -39,6 +39,9 @@ class IssueMapper
             $status->setName($issueData->fields->status->name);
             $fields->setStatus($status);
         }
+        if (isset($issueData->fields->customfield_10019) && $issueData->fields->customfield_10019 != null) {
+            $fields->setRankField($issueData->fields->customfield_10019);
+        }
 
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
             foreach ($issueData->fields->issuelinks as $linkedIssue) {
