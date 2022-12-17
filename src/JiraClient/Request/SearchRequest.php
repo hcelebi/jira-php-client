@@ -4,8 +4,14 @@ namespace JiraClient\Request;
 
 class SearchRequest {
     private string $jql;
-    private int $maxResults = 100;
+    private int $maxResults = 500;
     private int $startAt = 0;
+
+    public static function build(string $jql) : SearchRequest {
+        $searchRequest = new SearchRequest();
+        $searchRequest->setJql($jql);
+        return $searchRequest;
+    }
 
     /**
      * @return string
