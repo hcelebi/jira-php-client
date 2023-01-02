@@ -31,7 +31,7 @@ class Fields
     /** @var string */
     private $rankField;
 
-    private ?Sprint $sprint;
+    private ?Sprint $sprint = null;
     /**
      *  
      * @var Status|null
