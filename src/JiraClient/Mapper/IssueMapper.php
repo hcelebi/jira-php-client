@@ -6,6 +6,7 @@ use JiraClient\Dto\Fields;
 use JiraClient\Dto\Issue;
 use JiraClient\Dto\IssueType;
 use JiraClient\Dto\Resolution;
+use JiraClient\Dto\Sprint;
 use JiraClient\Dto\Status;
 
 class IssueMapper
@@ -41,6 +42,18 @@ class IssueMapper
         }
         if (isset($issueData->fields->customfield_10019) && $issueData->fields->customfield_10019 != null) {
             $fields->setRankField($issueData->fields->customfield_10019);
+        }
+
+        if (isset($issueData->fields->customfield_10020) && $issueData->fields->customfield_10020 != null) {
+            $sprint = new Sprint();
+            $sprint->setId($issueData->fields->customfield_10020->id);
+            $sprint->setName($issueData->fields->customfield_10020->name);
+            $sprint->setBoardId($issueData->fields->customfield_10020->boardId);
+            $sprint->setGoal($issueData->fields->customfield_10020->goal);
+            $sprint->setEndDate($issueData->fields->customfield_10020->endDate);
+            $sprint->setStartDate($issueData->fields->customfield_10020->startDate);
+            $sprint->setState($issueData->fields->customfield_10020->state);
+            $fields->setSprint($sprint);
         }
 
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {

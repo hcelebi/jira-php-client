@@ -30,6 +30,8 @@ class Fields
     private $resolution;
     /** @var string */
     private $rankField;
+
+    private ?Sprint $sprint;
     /**
      *  
      * @var Status|null
@@ -299,7 +301,9 @@ class Fields
         if ($this->rankField != null) {
             $arr['rankField'] = $this->rankField;
         }
-
+        if ($this->sprint != null) {
+            $arr['sprint'] = $this->sprint->toArray();
+        }
         return $arr;
     }
 
@@ -331,5 +335,21 @@ class Fields
     public function setRankField(string $rankField): void
     {
         $this->rankField = $rankField;
+    }
+
+    /**
+     * @return Sprint|null
+     */
+    public function getSprint(): ?Sprint
+    {
+        return $this->sprint;
+    }
+
+    /**
+     * @param Sprint|null $sprint
+     */
+    public function setSprint(?Sprint $sprint): void
+    {
+        $this->sprint = $sprint;
     }
 }
