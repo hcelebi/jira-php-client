@@ -44,15 +44,15 @@ class IssueMapper
             $fields->setRankField($issueData->fields->customfield_10019);
         }
 
-        if (isset($issueData->fields->customfield_10020) && $issueData->fields->customfield_10020 != null) {
+        if (isset($issueData->fields->customfield_10020) && $issueData->fields->customfield_10020 != null && isset($issueData->fields->customfield_10020[0])) {
             $sprint = new Sprint();
-            $sprint->setId($issueData->fields->customfield_10020->id);
-            $sprint->setName($issueData->fields->customfield_10020->name);
-            $sprint->setBoardId($issueData->fields->customfield_10020->boardId);
-            $sprint->setGoal($issueData->fields->customfield_10020->goal);
-            $sprint->setEndDate($issueData->fields->customfield_10020->endDate);
-            $sprint->setStartDate($issueData->fields->customfield_10020->startDate);
-            $sprint->setState($issueData->fields->customfield_10020->state);
+            $sprint->setId($issueData->fields->customfield_10020[0]->id);
+            $sprint->setName($issueData->fields->customfield_10020[0]->name);
+            $sprint->setBoardId($issueData->fields->customfield_10020[0]->boardId);
+            $sprint->setGoal($issueData->fields->customfield_10020[0]->goal);
+            $sprint->setEndDate($issueData->fields->customfield_10020[0]->endDate);
+            $sprint->setStartDate($issueData->fields->customfield_10020[0]->startDate);
+            $sprint->setState($issueData->fields->customfield_10020[0]->state);
             $fields->setSprint($sprint);
         }
 
