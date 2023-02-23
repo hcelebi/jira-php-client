@@ -31,7 +31,7 @@ class Fields
     /** @var string */
     private $rankField;
 
-    private ?Sprint $sprint = null;
+    private array $sprint = [];
     /**
      *  
      * @var Status|null
@@ -306,7 +306,11 @@ class Fields
             $arr['rankField'] = $this->rankField;
         }
         if ($this->sprint != null) {
-            $arr['sprint'] = $this->sprint->toArray();
+            $sprints = [];
+            foreach ($this->sprint as $item) {
+                $sprints[] = $item->toArray();
+            }
+            $arr['sprint'] = $sprints;
         }
         if ($this->storyPoint != null) {
             $arr['storyPoint'] = $this->storyPoint;
@@ -348,17 +352,17 @@ class Fields
     }
 
     /**
-     * @return Sprint|null
+     * @return Sprint[]
      */
-    public function getSprint(): ?Sprint
+    public function getSprint(): array
     {
         return $this->sprint;
     }
 
     /**
-     * @param Sprint|null $sprint
+     * @param Sprint[] $sprint
      */
-    public function setSprint(?Sprint $sprint): void
+    public function setSprint(array $sprint): void
     {
         $this->sprint = $sprint;
     }
