@@ -58,6 +58,8 @@ class IssueMapper
 
         if (isset($issueData->fields->customfield_10032) && $issueData->fields->customfield_10032 != null) {
             $fields->setStoryPoint($issueData->fields->customfield_10032);
+        } else {
+            $fields->setStoryPoint(0);
         }
 
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
