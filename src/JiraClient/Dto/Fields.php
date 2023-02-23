@@ -39,6 +39,8 @@ class Fields
     private $status;
     /** @var float|null */
     private $storyPoint;
+    /** @var string|null */
+    private $resolutiondate;
 
     /**
      * @return Project
@@ -309,6 +311,9 @@ class Fields
         if ($this->storyPoint != null) {
             $arr['storyPoint'] = $this->storyPoint;
         }
+        if ($this->resolutiondate != null) {
+            $arr['resolutiondate'] = $this->resolutiondate;
+        }
         return $arr;
     }
 
@@ -372,5 +377,21 @@ class Fields
     public function setStoryPoint(?float $storyPoint): void
     {
         $this->storyPoint = $storyPoint;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getResolutiondate(): ?string
+    {
+        return $this->resolutiondate;
+    }
+
+    /**
+     * @param string|null $resolutiondate
+     */
+    public function setResolutiondate(?string $resolutiondate): void
+    {
+        $this->resolutiondate = $resolutiondate;
     }
 }

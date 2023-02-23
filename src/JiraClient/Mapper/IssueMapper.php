@@ -64,6 +64,10 @@ class IssueMapper
             $fields->setStoryPoint(0);
         }
 
+        if (isset($issueData->fields->resolutiondate) && $issueData->fields->resolutiondate != null) {
+            $fields->setResolutiondate($issueData->fields->resolutiondate);
+        }
+
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
             foreach ($issueData->fields->issuelinks as $linkedIssue) {
                 if (isset($linkedIssue->inwardIssue)) {
