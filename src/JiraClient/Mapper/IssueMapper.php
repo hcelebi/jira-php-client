@@ -48,17 +48,19 @@ class IssueMapper
             $sprints = [];
             foreach ($issueData->fields->customfield_10020 as $item) {
                 $sprint = new Sprint();
-                $sprint->setId($issueData->fields->customfield_10020[0]->id);
-                $sprint->setName($issueData->fields->customfield_10020[0]->name);
-                $sprint->setBoardId($issueData->fields->customfield_10020[0]->boardId);
-                $sprint->setGoal($issueData->fields->customfield_10020[0]->goal);
-                $sprint->setEndDate($issueData->fields->customfield_10020[0]->endDate);
-                $sprint->setStartDate($issueData->fields->customfield_10020[0]->startDate);
-                $sprint->setState($issueData->fields->customfield_10020[0]->state);
-                $sprints[] = $sprint;
+                $sprint->setId($item->id);
+                $sprint->setName($item->name);
+                $sprint->setBoardId($item->boardId);
+                $sprint->setGoal($item->goal);
+                $sprint->setEndDate($item->endDate);
+                $sprint->setStartDate($item->startDate);
+                $sprint->setState($item->state);
+                $sprints[$item->id] = $sprint;
             }
+            sort($sprints);
             $fields->setSprint($sprints);
         }
+
 
         if (isset($issueData->fields->customfield_10032) && $issueData->fields->customfield_10032 != null) {
             $fields->setStoryPoint($issueData->fields->customfield_10032);
