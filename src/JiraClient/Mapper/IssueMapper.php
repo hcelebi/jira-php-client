@@ -56,6 +56,10 @@ class IssueMapper
             $fields->setSprint($sprint);
         }
 
+        if (isset($issueData->fields->customfield_10032) && $issueData->fields->customfield_10032 != null) {
+            $fields->setStoryPoint($issueData->fields->customfield_10032);
+        }
+
         if (isset($issueData->fields->issuelinks) && $issueData->fields->issuelinks != null) {
             foreach ($issueData->fields->issuelinks as $linkedIssue) {
                 if (isset($linkedIssue->inwardIssue)) {

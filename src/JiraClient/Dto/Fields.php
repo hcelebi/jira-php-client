@@ -37,6 +37,8 @@ class Fields
      * @var Status|null
      */
     private $status;
+    /** @var float|null */
+    private $storyPoint;
 
     /**
      * @return Project
@@ -304,6 +306,9 @@ class Fields
         if ($this->sprint != null) {
             $arr['sprint'] = $this->sprint->toArray();
         }
+        if ($this->storyPoint != null) {
+            $arr['storyPoint'] = $this->storyPoint;
+        }
         return $arr;
     }
 
@@ -351,5 +356,21 @@ class Fields
     public function setSprint(?Sprint $sprint): void
     {
         $this->sprint = $sprint;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getStoryPoint(): ?float
+    {
+        return $this->storyPoint;
+    }
+
+    /**
+     * @param float|null $storyPoint
+     */
+    public function setStoryPoint(?float $storyPoint): void
+    {
+        $this->storyPoint = $storyPoint;
     }
 }
