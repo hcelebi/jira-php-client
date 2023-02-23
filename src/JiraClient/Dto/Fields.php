@@ -41,6 +41,8 @@ class Fields
     private $storyPoint;
     /** @var string|null */
     private $resolutiondate;
+    /** @var string|null */
+    private $statuscategorychangedate;
 
     /**
      * @return Project
@@ -318,6 +320,9 @@ class Fields
         if ($this->resolutiondate != null) {
             $arr['resolutiondate'] = $this->resolutiondate;
         }
+        if ($this->statuscategorychangedate != null) {
+            $arr['statuscategorychangedate'] = $this->statuscategorychangedate;
+        }
         return $arr;
     }
 
@@ -397,5 +402,21 @@ class Fields
     public function setResolutiondate(?string $resolutiondate): void
     {
         $this->resolutiondate = $resolutiondate;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getStatuscategorychangedate(): ?string
+    {
+        return $this->statuscategorychangedate;
+    }
+
+    /**
+     * @param string|null $statuscategorychangedate
+     */
+    public function setStatuscategorychangedate(?string $statuscategorychangedate): void
+    {
+        $this->statuscategorychangedate = $statuscategorychangedate;
     }
 }
