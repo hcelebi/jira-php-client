@@ -5,22 +5,22 @@ namespace JiraClient\Dto;
 class Assignee
 {
     /** @var string */
-    private $name;
+    private string $displayName;
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getDisplayName(): string
     {
-        return $this->name;
+        return $this->displayName;
     }
 
     /**
-     * @param string $name
+     * @param string $displayName
      */
-    public function setName(string $name): void
+    public function setDisplayName(string $displayName): void
     {
-        $this->name = $name;
+        $this->displayName = $displayName;
     }
 
     public function toArray() : array
