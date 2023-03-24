@@ -12,7 +12,7 @@ class Fields
     private $description = '';
     /** @var array */
     private $labels;
-    /** @var Assignee */
+    /** @var Assignee|null */
     private $assignee;
     /** @var Repository[] */
     private $repositories = [];
@@ -114,20 +114,21 @@ class Fields
     }
 
     /**
-     * @return Assignee
+     * @return Assignee|null
      */
-    public function getAssignee(): Assignee
+    public function getAssignee(): ?Assignee
     {
         return $this->assignee;
     }
 
     /**
-     * @param Assignee $assignee
+     * @param Assignee|null $assignee
      */
-    public function setAssignee(Assignee $assignee): void
+    public function setAssignee(?Assignee $assignee): void
     {
         $this->assignee = $assignee;
     }
+
 
     /**
      * @return Repository[]
